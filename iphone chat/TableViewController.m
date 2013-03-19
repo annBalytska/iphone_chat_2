@@ -31,18 +31,18 @@
     [super viewDidLoad];
     _alphabet=[[NSArray alloc] initWithObjects:@"A",@"B",@"C",@"D",@"E",@"F",@"G",@"H",@"I",@"J",@"K",@"L",@"M",@"N",@"O",@"P",@"Q",@"R",@"S",@"T",@"U",@"V",@"W",@"X",@"Y",@"Z",nil];
     _people=[[NSDictionary alloc] initWithObjectsAndKeys:
-             @"family",   @"Angelina",
-             @"family",   @"Mackenzie",
-             @"family",   @"Brooke",
-             @"job",      @"Alex",
-             @"job",      @"Owen",
-             @"job",      @"Trinity",
-             @"job",      @"Zoe",
-             @"friends",  @"Nicole",
-             @"friends",  @"Rebecca",
-             @"friends",  @"Luis",
-             @"neighbour",@"Leon",
-             @"neighbour",@"Kaitlyn",
+             @"family",    @"Angelina",
+             @"family",    @"Mackenzie",
+             @"family",    @"Brooke",
+             @"job",       @"Alex",
+             @"job",       @"Owen",
+             @"job",       @"Trinity",
+             @"job",       @"Zoe",
+             @"friends",   @"Nicole",
+             @"friends",   @"Rebecca",
+             @"friends",   @"Luis",
+             @"neighbours",@"Leon",
+             @"neighbours",@"Kaitlyn",
              nil];
     _sections=[[NSMutableArray alloc]initWithCapacity:26];
     
@@ -109,7 +109,6 @@
     [headerLabel release];
     
     return headerView;
-  // return [[_sections objectAtIndex:section]nameOfSection];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -189,19 +188,18 @@
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-    Message *mesViewController = segue.destinationViewController;
-    for (int i=0; i<[_sortedKeys count]; i++) {
-        if ([[[_sections objectAtIndex:indexPath.section]nameOfSection]characterAtIndex:0]==[[_sortedKeys objectAtIndex:i]characterAtIndex:0])
-        {
-            mesViewController.titleName = [_sortedKeys objectAtIndex:i+indexPath.row];
-            mesViewController.messages= [_his messagesForKey:mesViewController.titleName];
-   
-            break;
+    if (indexPath) {
+        Message *mesViewController = segue.destinationViewController;
+        for (int i=0; i<[_sortedKeys count]; i++) {
+            if ([[[_sections objectAtIndex:indexPath.section]nameOfSection]characterAtIndex:0]==[[_sortedKeys objectAtIndex:i]characterAtIndex:0])
+            {
+                mesViewController.titleName = [_sortedKeys objectAtIndex:i+indexPath.row];
+                mesViewController.messages= [_his messagesForKey:mesViewController.titleName];
+                break;
+            }
         }
     }
-
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

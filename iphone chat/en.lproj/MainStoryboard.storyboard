@@ -74,13 +74,13 @@
             </objects>
             <point key="canvasLocation" x="496" y="-211"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Table View Controller - Title-->
         <scene sceneID="uOH-bW-Ski">
             <objects>
                 <tableViewController id="Se6-5c-BH4" customClass="TableViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="69" sectionHeaderHeight="22" sectionFooterHeight="22" id="gHl-Ct-0KW">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" alpha="0.90000000000000002" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="69" sectionHeaderHeight="22" sectionFooterHeight="22" id="gHl-Ct-0KW">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellIdentifier" rowHeight="69" id="g8C-9v-UGq" customClass="Cell">
@@ -111,7 +111,7 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
-                                <color key="backgroundColor" red="0.65419799925937072" green="0.76356930288948088" blue="0.8966444730758667" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.90636765809999997" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="group" destination="Ziw-4F-zEP" id="BsI-Wd-c4l"/>
                                     <outlet property="img" destination="Duv-Gp-7HJ" id="eWr-Tt-z6l"/>
@@ -125,11 +125,76 @@
                             <outlet property="delegate" destination="Se6-5c-BH4" id="YOy-Z7-87b"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="uTy-Cc-JlF"/>
+                    <navigationItem key="navigationItem" title="Title" id="IHY-54-fmo">
+                        <barButtonItem key="rightBarButtonItem" title="New Contact" id="Ksk-lz-88C">
+                            <connections>
+                                <segue destination="pQo-VO-VLu" kind="push" id="YBV-MG-r97"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IZf-f0-eZR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="969" y="-211"/>
+        </scene>
+        <!--Contact Controller - Creating new contact-->
+        <scene sceneID="JjJ-gP-zo0">
+            <objects>
+                <viewController title="Creating new contact" id="pQo-VO-VLu" customClass="contactController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EEX-yh-GVe">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="E:\Projects\JoeItaliano\IM System\path4206.png" id="IJV-Ce-Sh2">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Contact name" minimumFontSize="17" id="z4K-aH-hql">
+                                <rect key="frame" x="20" y="83" width="280" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.90636765809999997" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="pQo-VO-VLu" id="pXe-9e-DYW"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hSF-nY-Cdw">
+                                <rect key="frame" x="20" y="135" width="280" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Add contact">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="AddContact:" destination="pQo-VO-VLu" eventType="touchUpInside" id="Jir-un-UVi"/>
+                                </connections>
+                            </button>
+                            <pickerView alpha="0.70000000000000007" contentMode="scaleToFill" id="s7g-wZ-p3U">
+                                <rect key="frame" x="0.0" y="201" width="320" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="pQo-VO-VLu" id="LtB-5g-RNn"/>
+                                    <outlet property="delegate" destination="pQo-VO-VLu" id="NZD-87-CYB"/>
+                                </connections>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="L7N-Cq-WsE"/>
+                    <connections>
+                        <outlet property="contactName" destination="z4K-aH-hql" id="DeZ-Ro-H8g"/>
+                        <outlet property="picker" destination="s7g-wZ-p3U" id="aYy-JM-0Le"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3d8-xm-LfS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1511" y="-9"/>
         </scene>
         <!--Message-->
         <scene sceneID="ScP-0V-ZBC">
@@ -212,7 +277,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="md0-Nw-iUh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1382" y="-204"/>
+            <point key="canvasLocation" x="1511" y="-719"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="OR5-W6-4XZ">
@@ -267,6 +332,14 @@
                 <relationship kind="outlet" name="emailTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="mySubview" candidateClass="UIView"/>
                 <relationship kind="outlet" name="passwordTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="contactController" superclassName="ViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/contactController.h"/>
+            <relationships>
+                <relationship kind="action" name="AddContact:"/>
+                <relationship kind="outlet" name="contactName" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="picker" candidateClass="UIPickerView"/>
             </relationships>
         </class>
     </classes>

@@ -84,15 +84,15 @@
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
-    [email setString:@"email"];
-    [password setString:@"1111"];
-    if([_emailTextField.text isEqualToString:email]&&[_passwordTextField.text isEqualToString:password])
+   // [email setString:@"email"];
+  //  [password setString:@"1111"];
+  //  if([_emailTextField.text isEqualToString:email]&&[_passwordTextField.text isEqualToString:password])
         return YES;
-    else
-    {
-        [self showAlertBox];
-        return NO;
-    }
+//    else
+//    {
+//        [self showAlertBox];
+//        return NO;
+//    }
 }
 
 - (void)showAlertBox {
