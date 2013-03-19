@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "TableViewController.h"
 #import "HistoryOfMessages.h"
-#import "messageCell.h"
 
 @interface Message : UIViewController<UITableViewDelegate, UITableViewDataSource>
 @property (retain, nonatomic) IBOutlet UITableView *tableView;

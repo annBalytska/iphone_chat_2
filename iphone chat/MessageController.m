@@ -101,19 +101,19 @@
     NSString* theString=[_messages objectAtIndex:indexPath.row];
    
     
-    CGSize textSize = [theString sizeWithFont:[UIFont systemFontOfSize:14.0]
-                             constrainedToSize:CGSizeMake(300.0f, CGFLOAT_MAX)
-                                 lineBreakMode:NSLineBreakByClipping];
-    return textSize.height+15;
+    CGSize textSize = [theString sizeWithFont:[UIFont systemFontOfSize:18.0]                   
+                            constrainedToSize:CGSizeMake(300.0f, CGFLOAT_MAX)
+                                lineBreakMode:NSLineBreakByClipping];
+    return textSize.height;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"messageCellIdentifier";
-    messageCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    static NSString *CellIdentifier = @"mesCellIdentifier";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if ([_messages count]!=0) {
-        cell.textMessage.text=[_messages objectAtIndex:indexPath.row];
-        cell.textMessage.editable=NO;
+        cell.textLabel.text=[_messages objectAtIndex:indexPath.row];
+        cell.textLabel.numberOfLines = 0;
     }
     
     return cell;

@@ -24,7 +24,6 @@
 		020C8E0416D620B00007DFE4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 020C8E0316D620B00007DFE4 /* Default-568h@2x.png */; };
 		020C8E0716D620B00007DFE4 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 020C8E0516D620B00007DFE4 /* MainStoryboard.storyboard */; };
 		020C8E0A16D620B00007DFE4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 020C8E0916D620B00007DFE4 /* ViewController.m */; };
-		02C8250F16F77B9200FD78BF /* messageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C8250E16F77B9200FD78BF /* messageCell.m */; };
 		02D6131B16D622F100A617E6 /* E:\Projects\JoeItaliano\IM System\path4206.png in Resources */ = {isa = PBXBuildFile; fileRef = 02D6131A16D622F100A617E6 /* E:\Projects\JoeItaliano\IM System\path4206.png */; };
 		02D6131E16D6244B00A617E6 /* g3359.png in Resources */ = {isa = PBXBuildFile; fileRef = 02D6131C16D6244B00A617E6 /* g3359.png */; };
 		02D6131F16D6244B00A617E6 /* g5583.png in Resources */ = {isa = PBXBuildFile; fileRef = 02D6131D16D6244B00A617E6 /* g5583.png */; };
@@ -59,8 +58,6 @@
 		020C8E0616D620B00007DFE4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		020C8E0816D620B00007DFE4 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		020C8E0916D620B00007DFE4 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		02C8250D16F77B9200FD78BF /* messageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = messageCell.h; sourceTree = "<group>"; };
-		02C8250E16F77B9200FD78BF /* messageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = messageCell.m; sourceTree = "<group>"; };
 		02D6131A16D622F100A617E6 /* E:\Projects\JoeItaliano\IM System\path4206.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "E:\\Projects\\JoeItaliano\\IM System\\path4206.png"; sourceTree = "<group>"; };
 		02D6131C16D6244B00A617E6 /* g3359.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = g3359.png; sourceTree = "<group>"; };
 		02D6131D16D6244B00A617E6 /* g5583.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = g5583.png; sourceTree = "<group>"; };
@@ -151,8 +148,6 @@
 				02E2EDA916F0CED300AB90C9 /* NewSection.m */,
 				020B0F9B16F1DCD700CD5059 /* Cell.h */,
 				020B0F9C16F1DCD700CD5059 /* Cell.m */,
-				02C8250D16F77B9200FD78BF /* messageCell.h */,
-				02C8250E16F77B9200FD78BF /* messageCell.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -253,7 +248,6 @@
 				020B0F9D16F1DCD700CD5059 /* Cell.m in Sources */,
 				02EEFCE416F35CC6006F68D9 /* MessageController.m in Sources */,
 				020AFA2116F71CB400B87EAD /* HistoryOfMessages.m in Sources */,
-				02C8250F16F77B9200FD78BF /* messageCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
