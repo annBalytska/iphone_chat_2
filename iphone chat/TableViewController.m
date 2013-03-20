@@ -11,7 +11,6 @@
 @interface TableViewController ()
 @property NSArray* alphabet;
 @property NSMutableArray* sections;
-@property NSDictionary* people;
 @property NSArray *sortedKeys;
 @end
 
@@ -30,7 +29,7 @@
 {
     [super viewDidLoad];
     _alphabet=[[NSArray alloc] initWithObjects:@"A",@"B",@"C",@"D",@"E",@"F",@"G",@"H",@"I",@"J",@"K",@"L",@"M",@"N",@"O",@"P",@"Q",@"R",@"S",@"T",@"U",@"V",@"W",@"X",@"Y",@"Z",nil];
-    _people=[[NSDictionary alloc] initWithObjectsAndKeys:
+    _people=[[NSMutableDictionary alloc] initWithObjectsAndKeys:
              @"family",    @"Angelina",
              @"family",    @"Mackenzie",
              @"family",    @"Brooke",
@@ -43,6 +42,7 @@
              @"friends",   @"Luis",
              @"neighbours",@"Leon",
              @"neighbours",@"Kaitlyn",
+             @"other",     @"Mary",
              nil];
     _sections=[[NSMutableArray alloc]initWithCapacity:26];
     
@@ -140,8 +140,10 @@
         cell.img.image=[UIImage imageNamed:@"i-1.jpeg"];
     else if([[_people objectForKey:cell.nameOfContact.text] isEqualToString:@"friends"])
         cell.img.image=[UIImage imageNamed:@"i-2.jpeg"];
-    else 
+    else if([[_people objectForKey:cell.nameOfContact.text] isEqualToString:@"neighbours"])
         cell.img.image=[UIImage imageNamed:@"i-3.jpeg"];
+    else
+        cell.img.image = UIGraphicsGetImageFromCurrentImageContext();
     return cell;
 }
 
@@ -199,6 +201,11 @@
                 break;
             }
         }
+    }
+    else
+    {
+        contactController *contact = segue.destinationViewController;
+        contact.contacts=_people;
     }
 }
 

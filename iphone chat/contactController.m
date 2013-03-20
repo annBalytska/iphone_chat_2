@@ -9,9 +9,9 @@
 #import "contactController.h"
 
 @interface contactController ()
-@property NSString *name;
 @property NSString *category;
 @property NSArray *pickerData;
+@property NSString * contName;
 @end
 
 @implementation contactController
@@ -20,7 +20,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
     }
     return self;
 }
@@ -40,6 +39,7 @@
     NSArray *array = [[NSArray alloc] initWithObjects:@"family", @"job", @"friends",@"neighbours",@"other", nil];
     _pickerData=[[NSArray alloc]initWithArray:array];
     [array release];
+    _category=[array objectAtIndex:0];
 }
 
 
@@ -66,10 +66,22 @@
 - (void)dealloc {
     [_contactName release];
     [_picker release];
+    [_contacts release];
     [super dealloc];
 }
 - (IBAction)AddContact:(id)sender {
-    _name=_contactName.text;
+    _contName=_contactName.text;
+    if (_contactName.text) {
+        [_contacts setObject:_category forKey:_contName];
+    }
+    _contactName.text=@"";
+    
+//    self.navigationItem.backBarButtonItem
 }
+
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//        TableViewController *table = segue.destinationViewController;
+//        table.people=_contacts;
+//}
 
 @end

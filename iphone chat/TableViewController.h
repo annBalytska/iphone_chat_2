@@ -11,7 +11,9 @@
 #import "HistoryOfMessages.h"
 #import "Cell.h"
 #import "MessageController.h"
+#import "contactController.h"
 
 @interface TableViewController : UITableViewController
-@property (retain) HistoryOfMessages* his;
+@property (assign) HistoryOfMessages* his;
+@property (assign) NSMutableDictionary* people;
 @end
