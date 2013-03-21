@@ -17,5 +17,6 @@
 @property (retain, nonatomic) IBOutlet UIView *subView;
 @property (retain) NSMutableArray *messages;
 @property (retain, nonatomic) IBOutlet UITextView *newMessage;
+@property (retain, nonatomic) IBOutlet UIImageView *textBackGround;
 - (IBAction)Send:(id)sender;
 @end

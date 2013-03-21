@@ -82,6 +82,7 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -99,11 +100,11 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UIView *headerView = [[[UIView alloc] initWithFrame:CGRectMake(0,0,tableView.frame.size.width,30)] autorelease];
+    UIView *headerView = [[[UIView alloc] initWithFrame:CGRectMake(0,0,tableView.frame.size.width,23)] autorelease];
     UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, headerView.frame.size.width, headerView.frame.size.height)];
     headerLabel.text = [[_sections objectAtIndex:section]nameOfSection];
     headerLabel.textAlignment =NSTextAlignmentCenter;
-    headerLabel.backgroundColor = [UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1.0];
+    //headerLabel.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1.0];
     [headerView addSubview:headerLabel];
     [headerLabel release];
     return headerView;
@@ -121,7 +122,7 @@
     Cell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (cell == nil) {
-        cell = [[Cell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        cell = [[Cell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     for (int i=0; i<[_sortedKeys count]; i++) {
         if ([[[_sections objectAtIndex:indexPath.section]nameOfSection]characterAtIndex:0]==[[[_sortedKeys objectAtIndex:i]uppercaseString]characterAtIndex:0])
@@ -131,6 +132,9 @@
             break;
         }
     }
+//    UIView *backgroundView = [[[UIView alloc] initWithFrame:CGRectZero] autorelease];
+//    backgroundView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"rect5798.png"]];
+    cell.backGround.image = [UIImage imageNamed:@"rect5798.png"];
     if([[_people objectForKey:cell.nameOfContact.text] isEqualToString:@"family"])
         cell.img.image=[UIImage imageNamed:@"i.jpeg"];
     else if([[_people objectForKey:cell.nameOfContact.text] isEqualToString:@"job"])

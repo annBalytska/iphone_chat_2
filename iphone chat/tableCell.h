@@ -12,5 +12,6 @@
 @property (retain, nonatomic) IBOutlet UILabel *name;
 
 @property (retain, nonatomic) IBOutlet UILabel *message;
+@property (retain, nonatomic) IBOutlet UIImageView *backGround;
 
 @end

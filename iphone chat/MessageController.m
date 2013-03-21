@@ -41,6 +41,8 @@
     [self.tableView addGestureRecognizer:tapped];
     [tapped release];
 	// Do any additional setup after loading the view.
+    //_textBackGround.image = [UIImage imageNamed:@"rect7824.png"];
+
 }
 
 - (void)myNotificationMethod:(NSNotification*)notification
@@ -118,6 +120,7 @@
         cell.name.text=@"me";
         cell.message.text=[_messages objectAtIndex:indexPath.row];
         cell.message.numberOfLines = 0;
+        cell.backGround.image = [UIImage imageNamed:@"rect7824.png"];
     }
     
     return cell;
@@ -138,6 +141,7 @@
     [_newMessage release];
     [_subView release];
     [_messages release];
+    [_textBackGround release];
     [super dealloc];
 }
 

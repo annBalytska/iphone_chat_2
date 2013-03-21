@@ -15,4 +15,7 @@
 
 @property (retain, nonatomic) IBOutlet UILabel *group;
 
+@property (retain, nonatomic) IBOutlet UIImageView *backGround;
+
+
 @end

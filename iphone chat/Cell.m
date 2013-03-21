@@ -14,7 +14,6 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        
     }
     return self;
 }
@@ -31,6 +30,7 @@
     [_nameOfContact release];
     [_group release];
     [_nameOfContact release];
+    [_backGround release];
     [super dealloc];
 }
 @end

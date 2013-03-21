@@ -14,7 +14,6 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        // Initialization code
     }
     return self;
 }
@@ -29,6 +28,7 @@
 - (void)dealloc {
     [_name release];
     [_message release];
+    [_backGround release];
     [super dealloc];
 }
 @end

@@ -90,19 +90,23 @@
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="68"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="pFH-fh-ffH">
+                                            <rect key="frame" x="0.0" y="0.0" width="322" height="68"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="Duv-Gp-7HJ">
-                                            <rect key="frame" x="4" y="7" width="55" height="53"/>
+                                            <rect key="frame" x="40" y="9" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2Q9-ga-Ejv">
-                                            <rect key="frame" x="75" y="14" width="205" height="21"/>
+                                            <rect key="frame" x="109" y="14" width="188" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ziw-4F-zEP">
-                                            <rect key="frame" x="75" y="39" width="205" height="21"/>
+                                            <rect key="frame" x="109" y="38" width="188" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -113,6 +117,7 @@
                                 </view>
                                 <color key="backgroundColor" white="0.90636765809999997" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
+                                    <outlet property="backGround" destination="pFH-fh-ffH" id="kg4-zy-9TI"/>
                                     <outlet property="group" destination="Ziw-4F-zEP" id="BsI-Wd-c4l"/>
                                     <outlet property="img" destination="Duv-Gp-7HJ" id="eWr-Tt-z6l"/>
                                     <outlet property="nameOfContact" destination="2Q9-ga-Ejv" id="7TA-Ev-nH9"/>
@@ -205,7 +210,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="43" sectionHeaderHeight="22" sectionFooterHeight="22" id="s1B-iY-qYN">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="448"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="453"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -216,6 +221,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="42"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="Vwt-CF-BZA">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="42"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="I0I-08-28z">
                                                     <rect key="frame" x="10" y="2" width="300" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -233,7 +242,9 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
+                                            <outlet property="backGround" destination="Vwt-CF-BZA" id="4ob-OI-Q0M"/>
                                             <outlet property="message" destination="sxe-d2-xrK" id="6H9-Gs-Vvg"/>
                                             <outlet property="name" destination="I0I-08-28z" id="E1N-3y-i8Y"/>
                                         </connections>
@@ -245,13 +256,13 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" id="fb2-e5-zN1">
-                                <rect key="frame" x="0.0" y="405" width="320" height="99"/>
+                                <rect key="frame" x="0.0" y="453" width="320" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="z6W-GY-94G">
-                                        <rect key="frame" x="0.0" y="43" width="320" height="56"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="51"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="0.95365446159638556" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.90636765809999997" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         <connections>
@@ -310,6 +321,7 @@
         <class className="Cell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/Cell.h"/>
             <relationships>
+                <relationship kind="outlet" name="backGround" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="group" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="img" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="nameOfContact" candidateClass="UILabel"/>
@@ -322,6 +334,7 @@
                 <relationship kind="outlet" name="newMessage" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="subView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="textBackGround" candidateClass="UIImageView"/>
             </relationships>
         </class>
         <class className="TableViewController" superclassName="UITableViewController">
@@ -348,6 +361,7 @@
         <class className="tableCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/tableCell.h"/>
             <relationships>
+                <relationship kind="outlet" name="backGround" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="message" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="name" candidateClass="UILabel"/>
             </relationships>
