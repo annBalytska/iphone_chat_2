@@ -11,7 +11,7 @@
 @interface TableViewController ()
 @property NSArray* alphabet;
 @property NSMutableArray* sections;
-@property NSArray *sortedKeys;
+@property NSMutableArray *sortedKeys;
 @end
 
 @implementation TableViewController
@@ -73,7 +73,7 @@
     
     _his=[[HistoryOfMessages alloc] init];
  
-    _sortedKeys = [[NSArray alloc]initWithArray:[keys sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)]];
+    _sortedKeys = [[NSMutableArray alloc]initWithArray:[keys sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)]];
     
 
     
@@ -98,7 +98,6 @@
     return [_sections count];
 }
 
-
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UIView *headerView = [[[UIView alloc] initWithFrame:CGRectMake(0,0,tableView.frame.size.width,30)] autorelease];
     UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, headerView.frame.size.width, headerView.frame.size.height)];
@@ -107,7 +106,6 @@
     headerLabel.backgroundColor = [UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1.0];
     [headerView addSubview:headerLabel];
     [headerLabel release];
-    
     return headerView;
 }
 
@@ -126,14 +124,13 @@
         cell = [[Cell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     for (int i=0; i<[_sortedKeys count]; i++) {
-        if ([[[_sections objectAtIndex:indexPath.section]nameOfSection]characterAtIndex:0]==[[_sortedKeys objectAtIndex:i]characterAtIndex:0])
+        if ([[[_sections objectAtIndex:indexPath.section]nameOfSection]characterAtIndex:0]==[[[_sortedKeys objectAtIndex:i]uppercaseString]characterAtIndex:0])
         {
             cell.nameOfContact.text = [_sortedKeys objectAtIndex:i+indexPath.row];
             cell.group.text=[_people objectForKey:[_sortedKeys objectAtIndex:i+indexPath.row]];
             break;
         }
     }
-  
     if([[_people objectForKey:cell.nameOfContact.text] isEqualToString:@"family"])
         cell.img.image=[UIImage imageNamed:@"i.jpeg"];
     else if([[_people objectForKey:cell.nameOfContact.text] isEqualToString:@"job"])
@@ -194,7 +191,7 @@
     if (indexPath) {
         Message *mesViewController = segue.destinationViewController;
         for (int i=0; i<[_sortedKeys count]; i++) {
-            if ([[[_sections objectAtIndex:indexPath.section]nameOfSection]characterAtIndex:0]==[[_sortedKeys objectAtIndex:i]characterAtIndex:0])
+            if ([[[_sections objectAtIndex:indexPath.section]nameOfSection]characterAtIndex:0]==[[[_sortedKeys objectAtIndex:i]uppercaseString] characterAtIndex:0])
             {
                 mesViewController.titleName = [_sortedKeys objectAtIndex:i+indexPath.row];
                 mesViewController.messages= [_his messagesForKey:mesViewController.titleName];
@@ -209,9 +206,61 @@
     }
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+}
 
+
+- (void)addObject:(NSString*)object addKey:(NSString*)key {
+    bool b=false;
+    [_people setObject:object forKey:key];
+    
+    for (int i=0; i<[_sections count]; i++) {
+        if ([[key uppercaseString] characterAtIndex:0]==[[[_sections objectAtIndex:i]nameOfSection] characterAtIndex:0]) {
+            b=true;
+        }
+    }
+    if (b==false) {
+        
+        NewSection *sect = [[[NewSection alloc]init]autorelease];
+        [sect setNameOfSection:[NSString stringWithFormat:@"%c",[[key uppercaseString] characterAtIndex:0]]];
+        int i=0;
+        
+        while([[[_sections objectAtIndex:i]nameOfSection]characterAtIndex:0]<[[key uppercaseString] characterAtIndex:0]) {
+            i++;
+        }
+        [_sections insertObject:sect atIndex:i];
+        
+        NSMutableIndexSet *indexSet = [NSMutableIndexSet indexSet];
+        [indexSet addIndex:i];
+        [self.tableView beginUpdates];
+        [self.tableView insertSections:indexSet withRowAnimation:UITableViewRowAnimationNone];
+        [self.tableView endUpdates];
+    }
+    
+    int numberOfSection=0;
+    int numberOfRow=0;
+    [_sortedKeys addObject:key];
+    [_sortedKeys sortUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+    for (int i=0;i<[_sections count]; i++) {
+        if ([[key uppercaseString] characterAtIndex:0]==[[[_sections objectAtIndex:i]nameOfSection] characterAtIndex:0]) {
+            numberOfSection=i;
+        }
+    }
+    
+    int i=0,j=0;
+    
+    while ([[key uppercaseString] characterAtIndex:0] != [[[_sortedKeys objectAtIndex:i]uppercaseString] characterAtIndex:0]) {
+        i++;
+    }
+    while (![[key uppercaseString] isEqualToString:[[_sortedKeys objectAtIndex:j]uppercaseString]]) {
+        j++;
+    }
+    numberOfRow=j-i;
+    [[_sections objectAtIndex:numberOfSection]setNumberOfContacts:[[_sections objectAtIndex:numberOfSection]numberOfContacts]+1];
+    [self.tableView beginUpdates];
+    [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:numberOfRow inSection:numberOfSection]]
+                          withRowAnimation:UITableViewRowAnimationNone];
+    [self.tableView endUpdates];
 }
 
 - (void)dealloc

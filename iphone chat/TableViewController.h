@@ -16,4 +16,5 @@
 @interface TableViewController : UITableViewController
 @property (assign) HistoryOfMessages* his;
 @property (assign) NSMutableDictionary* people;
+- (void)addObject:(NSString*)object addKey:(NSString*)key;
 @end

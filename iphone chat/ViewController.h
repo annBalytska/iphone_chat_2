@@ -21,7 +21,6 @@
 @property (retain, nonatomic) IBOutlet UIButton *button;
 @property (retain, nonatomic) IBOutlet UIView *mySubview;
 
-
 - (void)showAlertBox;
 
 @end

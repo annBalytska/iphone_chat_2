@@ -40,6 +40,13 @@
     _pickerData=[[NSArray alloc]initWithArray:array];
     [array release];
     _category=[array objectAtIndex:0];
+    
+    UIBarButtonItem * backButton = [[UIBarButtonItem alloc] init];
+    backButton.title = @"Back";
+    backButton.action = @selector(actionBackButton:);
+    backButton.target = self;
+    self.navigationItem.leftBarButtonItem = backButton;
+    [backButton release];
 }
 
 
@@ -57,10 +64,34 @@
     _category=[_pickerData objectAtIndex:row];
 }
 
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)showAlertBox {
+    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@""
+                                                     message:@"Go back?"
+                                                    delegate:self
+                                           cancelButtonTitle:@"No"
+                                           otherButtonTitles:@"Yes", nil];
+    [alert show];
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex != [alertView cancelButtonIndex]) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
+
+-(void)actionBackButton:(id)sender {
+    if (![_contactName.text isEqualToString:@""]) {
+        [self showAlertBox];
+    }
+    else
+        [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)dealloc {
@@ -72,16 +103,9 @@
 - (IBAction)AddContact:(id)sender {
     _contName=_contactName.text;
     if (_contactName.text) {
-        [_contacts setObject:_category forKey:_contName];
+        [(TableViewController*)[self.navigationController.viewControllers objectAtIndex:1]addObject:_category addKey:_contName];
     }
     _contactName.text=@"";
-    
-//    self.navigationItem.backBarButtonItem
 }
-
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//        TableViewController *table = segue.destinationViewController;
-//        table.people=_contacts;
-//}
 
 @end

@@ -9,12 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "TableViewController.h"
 #import "HistoryOfMessages.h"
+#import "tableCell.h"
 
 @interface Message : UIViewController<UITableViewDelegate, UITableViewDataSource>
 @property (retain, nonatomic) IBOutlet UITableView *tableView;
 @property (retain, nonatomic) NSString* titleName;
-- (IBAction)addMessage:(id)sender;
 @property (retain, nonatomic) IBOutlet UIView *subView;
 @property (retain) NSMutableArray *messages;
 @property (retain, nonatomic) IBOutlet UITextView *newMessage;
+- (IBAction)Send:(id)sender;
 @end

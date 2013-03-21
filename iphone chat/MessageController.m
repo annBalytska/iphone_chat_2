@@ -24,7 +24,6 @@
     return self;
 }
 
-
 - (void)viewDidLoad
 {
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -38,10 +37,11 @@
     self.title = _titleName;
 
     [super viewDidLoad];
-    
+    UITapGestureRecognizer *tapped = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapped)];
+    [self.tableView addGestureRecognizer:tapped];
+    [tapped release];
 	// Do any additional setup after loading the view.
 }
-
 
 - (void)myNotificationMethod:(NSNotification*)notification
 {
@@ -61,6 +61,9 @@
         _subView.frame=frame;
         [UIView commitAnimations];
     }
+    CGRect tableFrame =self.tableView.frame;
+    tableFrame.size.height-=_f;
+    self.tableView.frame=tableFrame;
 }
 
 - (void)myNotificationMethodHide:(NSNotification*)notification
@@ -74,6 +77,9 @@
     [UIView setAnimationDuration:animationDuration];
     _subView.frame=frame;
     [UIView commitAnimations];
+    CGRect tableFrame =self.tableView.frame;
+    tableFrame.size.height+=_f;
+    self.tableView.frame=tableFrame;
 }
 
 - (void)didReceiveMemoryWarning
@@ -81,8 +87,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -94,26 +98,26 @@
     return [_messages count];
 }
 
-
-
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString* theString=[_messages objectAtIndex:indexPath.row];
    
     
-    CGSize textSize = [theString sizeWithFont:[UIFont systemFontOfSize:18.0]                   
+    CGSize textSize = [theString sizeWithFont:[UIFont systemFontOfSize:13.0]
                             constrainedToSize:CGSizeMake(300.0f, CGFLOAT_MAX)
                                 lineBreakMode:NSLineBreakByClipping];
-    return textSize.height;
+    
+    return textSize.height+21;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"mesCellIdentifier";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    tableCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if ([_messages count]!=0) {
-        cell.textLabel.text=[_messages objectAtIndex:indexPath.row];
-        cell.textLabel.numberOfLines = 0;
+        cell.name.text=@"me";
+        cell.message.text=[_messages objectAtIndex:indexPath.row];
+        cell.message.numberOfLines = 0;
     }
     
     return cell;
@@ -123,19 +127,10 @@
 
 }
 
-- (IBAction)addMessage:(id)sender
+-(void)tapped
 {
-    if (self.newMessage.text.length!=0) {
-        [_messages addObject:self.newMessage.text];
-        _newMessage.text=@"";
-        [_tableView beginUpdates];
-        [_tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:_messages.count - 1 inSection:0]]
-                          withRowAnimation:UITableViewRowAnimationNone];
-        [_tableView endUpdates];
-    }
-    [self.view endEditing:YES];
+  [self.view endEditing:YES];
 }
-
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
@@ -146,5 +141,14 @@
     [super dealloc];
 }
 
-
+- (IBAction)Send:(id)sender {
+    if (self.newMessage.text.length!=0) {
+        [_messages addObject:self.newMessage.text];
+        _newMessage.text=@"";
+        [_tableView beginUpdates];
+        [_tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:_messages.count - 1 inSection:0]]
+                          withRowAnimation:UITableViewRowAnimationNone];
+        [_tableView endUpdates];
+    }
+}
 @end
