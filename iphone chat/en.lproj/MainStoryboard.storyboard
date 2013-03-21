@@ -150,7 +150,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Contact name" minimumFontSize="17" id="z4K-aH-hql">
-                                <rect key="frame" x="20" y="83" width="280" height="34"/>
+                                <rect key="frame" x="20" y="74" width="280" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.94262989457831325" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -161,10 +161,10 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hSF-nY-Cdw">
-                                <rect key="frame" x="20" y="135" width="280" height="36"/>
+                                <rect key="frame" x="20" y="131" width="280" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Add contact">
+                                <state key="normal" title="Add contact" image="g5751.png">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -284,7 +284,6 @@
         <!--Navigation Controller-->
         <scene sceneID="OR5-W6-4XZ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Jac-Zl-2SH" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="Byh-ye-JVc" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vqD-c2-nes">
@@ -296,6 +295,7 @@
                         <segue destination="2" kind="relationship" relationship="rootViewController" id="pSf-qb-E7Y"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jac-Zl-2SH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-30" y="-211"/>
         </scene>
@@ -304,6 +304,7 @@
         <image name="E:\Projects\JoeItaliano\IM System\path4206.png" width="640" height="920"/>
         <image name="g3359.png" width="600" height="204"/>
         <image name="g5583.png" width="602" height="84"/>
+        <image name="g5751.png" width="602" height="84"/>
     </resources>
     <classes>
         <class className="Cell" superclassName="UITableViewCell">

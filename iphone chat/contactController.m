@@ -102,7 +102,7 @@
 }
 - (IBAction)AddContact:(id)sender {
     _contName=_contactName.text;
-    if (_contactName.text) {
+    if (![_contactName.text isEqualToString:@""]) {
         [(TableViewController*)[self.navigationController.viewControllers objectAtIndex:1]addObject:_category addKey:_contName];
     }
     _contactName.text=@"";
