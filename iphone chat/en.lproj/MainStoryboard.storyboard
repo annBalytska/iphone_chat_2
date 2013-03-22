@@ -210,19 +210,19 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="43" sectionHeaderHeight="22" sectionFooterHeight="22" id="s1B-iY-qYN">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="453"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="472"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="mesCellIdentifier" rowHeight="43" id="gvE-7w-iPS" customClass="tableCell">
-                                        <rect key="frame" x="0.0" y="22" width="320" height="43"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="mesCellIdentifier" rowHeight="47" id="gvE-7w-iPS" customClass="tableCell">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="47"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="42"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="46"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="Vwt-CF-BZA">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="42"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="46"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="I0I-08-28z">
@@ -233,7 +233,7 @@
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sxe-d2-xrK">
-                                                    <rect key="frame" x="10" y="21" width="300" height="21"/>
+                                                    <rect key="frame" x="10" y="18" width="300" height="25"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -256,18 +256,35 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" id="fb2-e5-zN1">
-                                <rect key="frame" x="0.0" y="453" width="320" height="51"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="0.0" y="472" width="320" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="z6W-GY-94G">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="51"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="0.90636765809999997" alpha="1" colorSpace="calibratedWhite"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="DdG-SD-9Tt">
+                                        <rect key="frame" x="272" y="0.0" width="48" height="33"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Send">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="SendMessage:" destination="zUz-gQ-U7j" eventType="touchUpInside" id="4Os-oc-vY6"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="oNn-Tk-dDN">
+                                        <rect key="frame" x="0.0" y="0.0" width="271" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </imageView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="sCI-DE-Il4">
+                                        <rect key="frame" x="0.0" y="0.0" width="271" height="32"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="zUz-gQ-U7j" id="ms9-Sg-bez"/>
-                                        </connections>
                                     </textView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -275,15 +292,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="dK4-kl-PcR">
-                        <barButtonItem key="rightBarButtonItem" title="Send" id="ifl-Fp-dIR">
-                            <connections>
-                                <action selector="Send:" destination="zUz-gQ-U7j" id="VB7-l2-2nA"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="dK4-kl-PcR"/>
                     <connections>
-                        <outlet property="newMessage" destination="z6W-GY-94G" id="foC-91-4I5"/>
+                        <outlet property="newMes" destination="sCI-DE-Il4" id="Qqw-HI-QDc"/>
+                        <outlet property="newMessageImage" destination="oNn-Tk-dDN" id="IuT-pc-d4l"/>
                         <outlet property="subView" destination="fb2-e5-zN1" id="zML-EX-qBF"/>
                         <outlet property="tableView" destination="s1B-iY-qYN" id="tCi-1y-dbJ"/>
                     </connections>
@@ -330,8 +342,9 @@
         <class className="Message" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/Message.h"/>
             <relationships>
-                <relationship kind="action" name="Send:"/>
-                <relationship kind="outlet" name="newMessage" candidateClass="UITextView"/>
+                <relationship kind="action" name="SendMessage:"/>
+                <relationship kind="outlet" name="newMes" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="newMessageImage" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="subView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="textBackGround" candidateClass="UIImageView"/>

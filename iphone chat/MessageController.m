@@ -35,14 +35,27 @@
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
     self.title = _titleName;
-
     [super viewDidLoad];
     UITapGestureRecognizer *tapped = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapped)];
     [self.tableView addGestureRecognizer:tapped];
     [tapped release];
-	// Do any additional setup after loading the view.
-    //_textBackGround.image = [UIImage imageNamed:@"rect7824.png"];
+    _newMessageImage.image= [UIImage imageNamed:@"rect7824.png"];
+    _newMes.delegate=self;
+}
 
+    
+- (void)textViewDidChange:(UITextView *)_newMes{
+    CGRect frame;
+    float fl;
+    frame = self.newMes.frame;
+    frame.size.height = [self.newMes contentSize].height;
+    fl=frame.size.height-self.newMes.frame.size.height;
+    self.newMes.frame = frame;
+    CGRect frameSubView;
+    frameSubView = self.subView.frame;
+    frameSubView.size.height+=fl;
+    frameSubView.origin.y-=fl;
+    _subView.frame=frameSubView;
 }
 
 - (void)myNotificationMethod:(NSNotification*)notification
@@ -103,8 +116,6 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString* theString=[_messages objectAtIndex:indexPath.row];
-   
-    
     CGSize textSize = [theString sizeWithFont:[UIFont systemFontOfSize:13.0]
                             constrainedToSize:CGSizeMake(300.0f, CGFLOAT_MAX)
                                 lineBreakMode:NSLineBreakByClipping];
@@ -122,12 +133,11 @@
         cell.message.numberOfLines = 0;
         cell.backGround.image = [UIImage imageNamed:@"rect7824.png"];
     }
-    
     return cell;
 }
 
-- (void)tableView:(UITableView *)sender didSelectRowAtIndexPath:(NSIndexPath *)path {
 
+- (void)tableView:(UITableView *)sender didSelectRowAtIndexPath:(NSIndexPath *)path {
 }
 
 -(void)tapped
@@ -138,21 +148,36 @@
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [_tableView release];
-    [_newMessage release];
     [_subView release];
     [_messages release];
     [_textBackGround release];
+    [_newMes release];
+    [_newMessageImage release];
     [super dealloc];
 }
 
-- (IBAction)Send:(id)sender {
-    if (self.newMessage.text.length!=0) {
-        [_messages addObject:self.newMessage.text];
-        _newMessage.text=@"";
+
+- (IBAction)SendMessage:(id)sender {
+    if (self.newMes.text.length!=0) {
+        [_messages addObject:self.newMes.text];
+        _newMes.text=@"";
         [_tableView beginUpdates];
         [_tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:_messages.count - 1 inSection:0]]
                           withRowAnimation:UITableViewRowAnimationNone];
         [_tableView endUpdates];
+        if ([_messages count]>0) {
+            [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[_messages count]-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+        }
+        CGRect frame;
+        frame = self.newMes.frame;
+        float fl;
+        fl=frame.size.height-32;
+        frame.size.height-=fl;
+        self.newMes.frame = frame;
+        frame=self.subView.frame;
+        frame.size.height-=fl;
+        frame.origin.y+=fl;
+        self.subView.frame=frame;
     }
 }
 @end

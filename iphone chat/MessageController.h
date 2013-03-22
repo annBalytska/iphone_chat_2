@@ -11,12 +11,13 @@
 #import "HistoryOfMessages.h"
 #import "tableCell.h"
 
-@interface Message : UIViewController<UITableViewDelegate, UITableViewDataSource>
+@interface Message : UIViewController<UITableViewDelegate, UITableViewDataSource,UITextViewDelegate>
 @property (retain, nonatomic) IBOutlet UITableView *tableView;
 @property (retain, nonatomic) NSString* titleName;
 @property (retain, nonatomic) IBOutlet UIView *subView;
 @property (retain) NSMutableArray *messages;
-@property (retain, nonatomic) IBOutlet UITextView *newMessage;
 @property (retain, nonatomic) IBOutlet UIImageView *textBackGround;
-- (IBAction)Send:(id)sender;
+- (IBAction)SendMessage:(id)sender;
+@property (retain, nonatomic) IBOutlet UIImageView *newMessageImage;
+@property (retain, nonatomic) IBOutlet UITextView *newMes;
 @end
