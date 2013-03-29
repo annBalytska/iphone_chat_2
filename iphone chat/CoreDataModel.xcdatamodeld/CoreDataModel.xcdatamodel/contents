@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2057" systemVersion="12B2080" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Contact" representedClassName="Contact" syncable="YES">
+        <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="sendMessage" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MessageHistory" inverseName="whoSend" inverseEntity="MessageHistory" syncable="YES"/>
+    </entity>
+    <entity name="MessageHistory" representedClassName="MessageHistory" syncable="YES">
+        <attribute name="message" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="number" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <relationship name="whoSend" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Contact" inverseName="sendMessage" inverseEntity="Contact" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Contact" positionX="-11828" positionY="-6354" width="128" height="88"/>
+        <element name="MessageHistory" positionX="-11565" positionY="-6345" width="128" height="88"/>
+    </elements>
+</model>

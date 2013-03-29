@@ -7,6 +7,7 @@
 //
 
 #import "MessageController.h"
+#import "MessageHistory.h"
 
 @interface Message ()
 @property float f;
@@ -14,15 +15,7 @@
 @end
 
 @implementation Message
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
+@synthesize contact = _contact;
 
 - (void)viewDidLoad
 {
@@ -34,17 +27,17 @@
                                              selector:@selector(myNotificationMethodHide:)
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
-    self.title = _titleName;
+//    self.title = _titleName;
     [super viewDidLoad];
-    UITapGestureRecognizer *tapped = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapped)];
-    [self.tableView addGestureRecognizer:tapped];
-    [tapped release];
+    UITapGestureRecognizer *tappedGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapped)];
+    [self.tableView addGestureRecognizer:tappedGesture];
+    [tappedGesture autorelease];
     _newMessageImage.image= [UIImage imageNamed:@"rect7824.png"];
     _newMes.delegate=self;
 }
 
-    
-- (void)textViewDidChange:(UITextView *)_newMes{
+
+- (void)textViewDidChange:(UITextView *)textView{
     CGRect frame;
     float fl;
     frame = self.newMes.frame;
@@ -56,6 +49,12 @@
     frameSubView.size.height+=fl;
     frameSubView.origin.y-=fl;
     _subView.frame=frameSubView;
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    NSString *newString = [self.newMes.text stringByReplacingCharactersInRange:range withString:text];
+    return !([newString length] > 57);
 }
 
 - (void)myNotificationMethod:(NSNotification*)notification
@@ -97,81 +96,113 @@
     self.tableView.frame=tableFrame;
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+//{
+//    return 1;
+//}
+//
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+//{
+//    return [_messages count];
+//}
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return [_messages count];
-}
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    MessageHistory *messageHistory = [self.fetchedResultsController objectAtIndexPath:indexPath];
+//    NSString* theString=messageHistory.message;
+//    CGSize textSize = [theString sizeWithFont:[UIFont systemFontOfSize:13.0]
+//                            constrainedToSize:CGSizeMake(300.0f, CGFLOAT_MAX)
+//                                lineBreakMode:NSLineBreakByClipping];
+//    
+//    return textSize.height+21;
+//}
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSString* theString=[_messages objectAtIndex:indexPath.row];
-    CGSize textSize = [theString sizeWithFont:[UIFont systemFontOfSize:13.0]
-                            constrainedToSize:CGSizeMake(300.0f, CGFLOAT_MAX)
-                                lineBreakMode:NSLineBreakByClipping];
-    
-    return textSize.height+21;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"mesCellIdentifier";
-    tableCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if ([_messages count]!=0) {
-        cell.name.text=@"me";
-        cell.message.text=[_messages objectAtIndex:indexPath.row];
-        cell.message.numberOfLines = 0;
-        cell.backGround.image = [UIImage imageNamed:@"rect7824.png"];
-    }
-    return cell;
-}
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    static NSString *CellIdentifier = @"mesCellIdentifier";
+//    tableCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+//    if ([_messages count]!=0) {
+//        cell.name.text=@"me";
+//        cell.message.text=[_messages objectAtIndex:indexPath.row];
+//        cell.message.numberOfLines = 0;
+//        cell.backGround.image = [UIImage imageNamed:@"rect7824.png"];
+//    }
+//    return cell;
+//}
 
 
-- (void)tableView:(UITableView *)sender didSelectRowAtIndexPath:(NSIndexPath *)path {
-}
-
--(void)tapped
-{
+-(void)tapped {
   [self.view endEditing:YES];
 }
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    [_tableView release];
-    [_subView release];
-    [_messages release];
-    [_textBackGround release];
-    [_newMes release];
-    [_newMessageImage release];
+    [_subView autorelease];
+//    [_messages release];
+    [_textBackGround autorelease];
+    [_newMes autorelease];
+    [_newMessageImage autorelease];
     [super dealloc];
 }
 
 
+//- (IBAction)SendMessage:(id)sender {
+//    if (self.newMes.text.length!=0) {
+//        [_messages addObject:self.newMes.text];
+//        _newMes.text=@"";
+//        [self.tableView beginUpdates];
+//        [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:_messages.count - 1 inSection:0]]
+//                          withRowAnimation:UITableViewRowAnimationNone];
+//        [self.tableView endUpdates];
+//        if ([_messages count]>0) {
+//            [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[_messages count]-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+//        }
+//        CGRect frame;
+//        frame = self.newMes.frame;
+//        float fl;
+//        fl=frame.size.height-32;
+//        frame.size.height-=fl;
+//        self.newMes.frame = frame;
+//        frame=self.subView.frame;
+//        frame.size.height-=fl;
+//        frame.origin.y+=fl;
+//        self.subView.frame=frame;
+//    }
+//}
+
+
+
+
+
 - (IBAction)SendMessage:(id)sender {
     if (self.newMes.text.length!=0) {
-        [_messages addObject:self.newMes.text];
-        _newMes.text=@"";
-        [_tableView beginUpdates];
-        [_tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:_messages.count - 1 inSection:0]]
-                          withRowAnimation:UITableViewRowAnimationNone];
-        [_tableView endUpdates];
-        if ([_messages count]>0) {
-            [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[_messages count]-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
-        }
-        CGRect frame;
-        frame = self.newMes.frame;
-        float fl;
-        fl=frame.size.height-32;
+        
+        NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+        NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:@"MessageHistory" inManagedObjectContext:context];
+        NSNumber *number=[NSNumber numberWithInt:[self.tableView numberOfRowsInSection:0]];
+        [newManagedObject setValue:number forKey:@"number"];
+        [newManagedObject setValue:self.newMes.text forKey:@"message"];
+        [newManagedObject setValue:self.contact forKey:@"whoSend"];
+
+        
+//NSManagedObjectContext *context = [[(TableViewController*)[self.navigationController.viewControllers objectAtIndex:1] database]managedObjectContext];
+// MessageHistory *message = (MessageHistory *)[NSEntityDescription insertNewObjectForEntityForName:@"MessageHistory" inManagedObjectContext:context];
+//        message.message=self.newMes.text;
+//        message.number=[NSNumber numberWithInt:[self.tableView numberOfRowsInSection:0]];
+//        message.whoSend=self.contact;
+        
+       _newMes.text=@"";
+       //        [self.tableView beginUpdates];
+//        [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:number inSection:0]]
+//                              withRowAnimation:UITableViewRowAnimationNone];
+//        [self.tableView endUpdates];
+
+
+//        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[self tableView:self.tableView numberOfRowsInSection:0]-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+        
+        CGRect frame = self.newMes.frame;
+        float fl = frame.size.height-32;
         frame.size.height-=fl;
         self.newMes.frame = frame;
         frame=self.subView.frame;
@@ -180,4 +211,46 @@
         self.subView.frame=frame;
     }
 }
+
+
+- (void)setupFetchedResultsController
+{
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"MessageHistory"];
+    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"number"
+                                                                                     ascending:YES
+                                                                                      selector:@selector(compare:)]];
+    request.predicate = [NSPredicate predicateWithFormat:@"whoSend == %@", self.contact];
+    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
+                                                                        managedObjectContext:self.contact.managedObjectContext
+                                                                          sectionNameKeyPath:nil
+                                                                                cacheName:nil];
+    
+}
+
+- (void)setContact:(Contact *)contact
+{
+    _contact = contact;
+    self.title = contact.name;
+    [self setupFetchedResultsController];
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"mesCellIdentifier";
+    
+    tableCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[tableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+
+    MessageHistory *messageHistory = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    cell.name.text=@"me";
+    cell.message.text=messageHistory.message;
+    cell.message.numberOfLines = 0;
+    cell.backGround.image = [UIImage imageNamed:@"rect7824.png"];
+    return cell;
+}
+
 @end

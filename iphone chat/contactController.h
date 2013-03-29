@@ -8,12 +8,13 @@
 
 #import "ViewController.h"
 #import "TableViewController.h"
+#import "Contact.h"
 
 @interface contactController : ViewController
 
 @property (retain, nonatomic) IBOutlet UITextField *contactName;
 - (IBAction)AddContact:(id)sender;
-@property (retain) NSMutableDictionary* contacts;
+//@property (retain) NSMutableDictionary* contacts;
 @property (retain, nonatomic) IBOutlet UIPickerView *picker;
 
 @end

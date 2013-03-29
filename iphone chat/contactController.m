@@ -16,14 +16,6 @@
 
 @implementation contactController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -38,7 +30,7 @@
                                                object:nil];
     NSArray *array = [[NSArray alloc] initWithObjects:@"family", @"job", @"friends",@"neighbours",@"other", nil];
     _pickerData=[[NSArray alloc]initWithArray:array];
-    [array release];
+    [array autorelease];
     _category=[array objectAtIndex:0];
     
     UIBarButtonItem * backButton = [[UIBarButtonItem alloc] init];
@@ -46,7 +38,8 @@
     backButton.action = @selector(actionBackButton:);
     backButton.target = self;
     self.navigationItem.leftBarButtonItem = backButton;
-    [backButton release];
+    [backButton autorelease];
+    self.title = @"New contact";
 }
 
 
@@ -97,13 +90,18 @@
 - (void)dealloc {
     [_contactName release];
     [_picker release];
-    [_contacts release];
+//    [_contacts release];
     [super dealloc];
 }
 - (IBAction)AddContact:(id)sender {
     _contName=_contactName.text;
     if (![_contactName.text isEqualToString:@""]) {
-        [(TableViewController*)[self.navigationController.viewControllers objectAtIndex:1]addObject:_category addKey:_contName];
+    //    [(TableViewController*)[self.navigationController.viewControllers objectAtIndex:1]addObject:_category addKey:_contName];
+        NSManagedObjectContext *context = [[(TableViewController*)[self.navigationController.viewControllers objectAtIndex:1] database]managedObjectContext];
+        Contact *contact = (Contact *)[NSEntityDescription insertNewObjectForEntityForName:@"Contact" inManagedObjectContext:context];
+        contact.name=_contactName.text;
+        contact.category=_category;
+        
     }
     _contactName.text=@"";
 }

@@ -10,14 +10,17 @@
 #import "TableViewController.h"
 #import "HistoryOfMessages.h"
 #import "tableCell.h"
+#import "CoreDataTableViewController.h"
+#import "Contact.h"
 
-@interface Message : UIViewController<UITableViewDelegate, UITableViewDataSource,UITextViewDelegate>
-@property (retain, nonatomic) IBOutlet UITableView *tableView;
+@interface Message : CoreDataTableViewController<UITextViewDelegate>
 @property (retain, nonatomic) NSString* titleName;
 @property (retain, nonatomic) IBOutlet UIView *subView;
-@property (retain) NSMutableArray *messages;
+//@property (retain) NSMutableArray *messages;
 @property (retain, nonatomic) IBOutlet UIImageView *textBackGround;
-- (IBAction)SendMessage:(id)sender;
+//- (IBAction)SendMessage:(id)sender;
 @property (retain, nonatomic) IBOutlet UIImageView *newMessageImage;
 @property (retain, nonatomic) IBOutlet UITextView *newMes;
+@property (nonatomic, strong) Contact *contact;
+
 @end

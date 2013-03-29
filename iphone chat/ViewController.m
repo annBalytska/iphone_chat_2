@@ -7,7 +7,6 @@
 //
 
 #import "ViewController.h"
-#import "SecondController.h"
 
 @interface ViewController ()
 @property float f;

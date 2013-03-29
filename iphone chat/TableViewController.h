@@ -12,9 +12,11 @@
 #import "Cell.h"
 #import "MessageController.h"
 #import "contactController.h"
+#import "CoreDataTableViewController.h"
 
-@interface TableViewController : UITableViewController
+@interface TableViewController : CoreDataTableViewController
 @property (assign) HistoryOfMessages* his;
-@property (assign) NSMutableDictionary* people;
-- (void)addObject:(NSString*)object addKey:(NSString*)key;
+//@property (assign) NSMutableDictionary* people;
+@property (nonatomic, strong) UIManagedDocument *database;
+//- (void)addObject:(NSString*)object addKey:(NSString*)key;
 @end

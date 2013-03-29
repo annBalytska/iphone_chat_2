@@ -95,18 +95,18 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="Duv-Gp-7HJ">
-                                            <rect key="frame" x="40" y="9" width="50" height="50"/>
+                                            <rect key="frame" x="9" y="9" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2Q9-ga-Ejv">
-                                            <rect key="frame" x="109" y="14" width="188" height="21"/>
+                                            <rect key="frame" x="71" y="14" width="216" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ziw-4F-zEP">
-                                            <rect key="frame" x="109" y="38" width="188" height="21"/>
+                                            <rect key="frame" x="71" y="38" width="216" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -137,6 +137,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="gHl-Ct-0KW" id="rIy-Xr-gLd"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IZf-f0-eZR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -251,8 +254,8 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="zUz-gQ-U7j" id="MgO-bv-gQu"/>
-                                    <outlet property="delegate" destination="zUz-gQ-U7j" id="4r8-vG-B4t"/>
+                                    <outlet property="dataSource" destination="zUz-gQ-U7j" id="2X5-T0-GCH"/>
+                                    <outlet property="delegate" destination="zUz-gQ-U7j" id="pww-TH-xpy"/>
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" id="fb2-e5-zN1">
@@ -297,7 +300,7 @@
                         <outlet property="newMes" destination="sCI-DE-Il4" id="Qqw-HI-QDc"/>
                         <outlet property="newMessageImage" destination="oNn-Tk-dDN" id="IuT-pc-d4l"/>
                         <outlet property="subView" destination="fb2-e5-zN1" id="zML-EX-qBF"/>
-                        <outlet property="tableView" destination="s1B-iY-qYN" id="tCi-1y-dbJ"/>
+                        <outlet property="tableView" destination="s1B-iY-qYN" id="snW-To-Yfp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="md0-Nw-iUh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -329,57 +332,6 @@
         <image name="g5583.png" width="602" height="84"/>
         <image name="g5751.png" width="602" height="84"/>
     </resources>
-    <classes>
-        <class className="Cell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/Cell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="backGround" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="group" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="img" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="nameOfContact" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="Message" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/Message.h"/>
-            <relationships>
-                <relationship kind="action" name="SendMessage:"/>
-                <relationship kind="outlet" name="newMes" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="newMessageImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="subView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="textBackGround" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="TableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TableViewController.h"/>
-        </class>
-        <class className="ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="button" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="display" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="emailTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="mySubview" candidateClass="UIView"/>
-                <relationship kind="outlet" name="passwordTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="contactController" superclassName="ViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/contactController.h"/>
-            <relationships>
-                <relationship kind="action" name="AddContact:"/>
-                <relationship kind="outlet" name="contactName" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="picker" candidateClass="UIPickerView"/>
-            </relationships>
-        </class>
-        <class className="tableCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/tableCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="backGround" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="message" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="name" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
