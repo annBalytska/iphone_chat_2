@@ -27,7 +27,6 @@
                                              selector:@selector(myNotificationMethodHide:)
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
-//    self.title = _titleName;
     [super viewDidLoad];
     UITapGestureRecognizer *tappedGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapped)];
     [self.tableView addGestureRecognizer:tappedGesture];
@@ -139,40 +138,11 @@
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [_subView autorelease];
-//    [_messages release];
     [_textBackGround autorelease];
     [_newMes autorelease];
     [_newMessageImage autorelease];
     [super dealloc];
 }
-
-
-//- (IBAction)SendMessage:(id)sender {
-//    if (self.newMes.text.length!=0) {
-//        [_messages addObject:self.newMes.text];
-//        _newMes.text=@"";
-//        [self.tableView beginUpdates];
-//        [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:_messages.count - 1 inSection:0]]
-//                          withRowAnimation:UITableViewRowAnimationNone];
-//        [self.tableView endUpdates];
-//        if ([_messages count]>0) {
-//            [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[_messages count]-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
-//        }
-//        CGRect frame;
-//        frame = self.newMes.frame;
-//        float fl;
-//        fl=frame.size.height-32;
-//        frame.size.height-=fl;
-//        self.newMes.frame = frame;
-//        frame=self.subView.frame;
-//        frame.size.height-=fl;
-//        frame.origin.y+=fl;
-//        self.subView.frame=frame;
-//    }
-//}
-
-
-
 
 
 - (IBAction)SendMessage:(id)sender {

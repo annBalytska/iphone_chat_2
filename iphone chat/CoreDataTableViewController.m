@@ -15,10 +15,6 @@
 
 #pragma mark - Properties
 
-//@synthesize fetchedResultsController = _fetchedResultsController;
-//@synthesize suspendAutomaticTrackingOfChangesInManagedObjectContext = _suspendAutomaticTrackingOfChangesInManagedObjectContext;
-//@synthesize debug = _debug;
-//@synthesize beganUpdates = _beganUpdates;
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
@@ -96,7 +92,6 @@
 {
     if (!self.suspendAutomaticTrackingOfChangesInManagedObjectContext) {
         [self.tableView beginUpdates];
-       // self.beganUpdates = YES;
     }
 }
 
@@ -153,11 +148,8 @@
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
- //   if (self.beganUpdates) {
         [self.tableView endUpdates];
-//        _beganUpdates=NO;
         [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[self tableView:self.tableView numberOfRowsInSection:[[self.fetchedResultsController sections]count]-1]-1 inSection:[[self.fetchedResultsController sections]count]-1] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
- //   }
 }
 
 - (void)endSuspensionOfUpdatesDueToContextChanges

@@ -61,7 +61,6 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)showAlertBox {
@@ -90,13 +89,11 @@
 - (void)dealloc {
     [_contactName release];
     [_picker release];
-//    [_contacts release];
     [super dealloc];
 }
 - (IBAction)AddContact:(id)sender {
     _contName=_contactName.text;
     if (![_contactName.text isEqualToString:@""]) {
-    //    [(TableViewController*)[self.navigationController.viewControllers objectAtIndex:1]addObject:_category addKey:_contName];
         NSManagedObjectContext *context = [[(TableViewController*)[self.navigationController.viewControllers objectAtIndex:1] database]managedObjectContext];
         Contact *contact = (Contact *)[NSEntityDescription insertNewObjectForEntityForName:@"Contact" inManagedObjectContext:context];
         contact.name=_contactName.text;

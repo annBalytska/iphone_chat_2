@@ -8,15 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "NewSection.h"
-#import "HistoryOfMessages.h"
 #import "Cell.h"
 #import "MessageController.h"
 #import "contactController.h"
 #import "CoreDataTableViewController.h"
 
 @interface TableViewController : CoreDataTableViewController
-@property (assign) HistoryOfMessages* his;
-//@property (assign) NSMutableDictionary* people;
 @property (nonatomic, strong) UIManagedDocument *database;
-//- (void)addObject:(NSString*)object addKey:(NSString*)key;
 @end

@@ -14,7 +14,6 @@
 
 @property (retain, nonatomic) IBOutlet UITextField *contactName;
 - (IBAction)AddContact:(id)sender;
-//@property (retain) NSMutableDictionary* contacts;
 @property (retain, nonatomic) IBOutlet UIPickerView *picker;
 
 @end

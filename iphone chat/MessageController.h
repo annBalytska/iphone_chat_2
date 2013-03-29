@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "TableViewController.h"
-#import "HistoryOfMessages.h"
 #import "tableCell.h"
 #import "CoreDataTableViewController.h"
 #import "Contact.h"
@@ -16,9 +15,7 @@
 @interface Message : CoreDataTableViewController<UITextViewDelegate>
 @property (retain, nonatomic) NSString* titleName;
 @property (retain, nonatomic) IBOutlet UIView *subView;
-//@property (retain) NSMutableArray *messages;
 @property (retain, nonatomic) IBOutlet UIImageView *textBackGround;
-//- (IBAction)SendMessage:(id)sender;
 @property (retain, nonatomic) IBOutlet UIImageView *newMessageImage;
 @property (retain, nonatomic) IBOutlet UITextView *newMes;
 @property (nonatomic, strong) Contact *contact;

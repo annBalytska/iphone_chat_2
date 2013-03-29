@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		0203242E16FCA8EA00C9936F /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0203242C16FCA8EA00C9936F /* CoreDataModel.xcdatamodeld */; };
 		02039DBA16F8C1B100AEEC77 /* contactController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02039DB916F8C1B100AEEC77 /* contactController.m */; };
-		020AFA2116F71CB400B87EAD /* HistoryOfMessages.m in Sources */ = {isa = PBXBuildFile; fileRef = 020AFA2016F71CB400B87EAD /* HistoryOfMessages.m */; };
 		020B0F9716F1C91800CD5059 /* i-1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 020B0F9316F1C91800CD5059 /* i-1.jpeg */; };
 		020B0F9816F1C91800CD5059 /* i-2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 020B0F9416F1C91800CD5059 /* i-2.jpeg */; };
 		020B0F9916F1C91800CD5059 /* i-3.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 020B0F9516F1C91800CD5059 /* i-3.jpeg */; };
@@ -45,8 +44,6 @@
 		0203242D16FCA8EA00C9936F /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
 		02039DB816F8C1B100AEEC77 /* contactController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = contactController.h; sourceTree = "<group>"; };
 		02039DB916F8C1B100AEEC77 /* contactController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = contactController.m; sourceTree = "<group>"; };
-		020AFA1F16F71CB400B87EAD /* HistoryOfMessages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryOfMessages.h; sourceTree = "<group>"; };
-		020AFA2016F71CB400B87EAD /* HistoryOfMessages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryOfMessages.m; sourceTree = "<group>"; };
 		020B0F9316F1C91800CD5059 /* i-1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "i-1.jpeg"; sourceTree = "<group>"; };
 		020B0F9416F1C91800CD5059 /* i-2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "i-2.jpeg"; sourceTree = "<group>"; };
 		020B0F9516F1C91800CD5059 /* i-3.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "i-3.jpeg"; sourceTree = "<group>"; };
@@ -156,8 +153,6 @@
 				0203242C16FCA8EA00C9936F /* CoreDataModel.xcdatamodeld */,
 				02E78EC917058CCB00046ECF /* CoreDataTableViewController.h */,
 				02E78ECA17058CCB00046ECF /* CoreDataTableViewController.m */,
-				020AFA1F16F71CB400B87EAD /* HistoryOfMessages.h */,
-				020AFA2016F71CB400B87EAD /* HistoryOfMessages.m */,
 				020C8DF416D620B00007DFE4 /* Supporting Files */,
 			);
 			path = "iphone chat";
@@ -281,7 +276,6 @@
 				02E2EDAA16F0CED300AB90C9 /* NewSection.m in Sources */,
 				020B0F9D16F1DCD700CD5059 /* Cell.m in Sources */,
 				02EEFCE416F35CC6006F68D9 /* MessageController.m in Sources */,
-				020AFA2116F71CB400B87EAD /* HistoryOfMessages.m in Sources */,
 				02039DBA16F8C1B100AEEC77 /* contactController.m in Sources */,
 				02ADBD5D16FAFD3300EF73C7 /* tableCell.m in Sources */,
 				0203242E16FCA8EA00C9936F /* CoreDataModel.xcdatamodeld in Sources */,

@@ -22,21 +22,6 @@
 {
     [super viewDidLoad];
     _alphabet=[[NSArray alloc] initWithObjects:@"A",@"B",@"C",@"D",@"E",@"F",@"G",@"H",@"I",@"J",@"K",@"L",@"M",@"N",@"O",@"P",@"Q",@"R",@"S",@"T",@"U",@"V",@"W",@"X",@"Y",@"Z",nil];
-//    _people=[[NSMutableDictionary alloc] initWithObjectsAndKeys:
-//             @"family",    @"Angelina",
-//             @"family",    @"Mackenzie",
-//             @"family",    @"Brooke",
-//             @"job",       @"Alex",
-//             @"job",       @"Owen",
-//             @"job",       @"Trinity",
-//             @"job",       @"Zoe",
-//             @"friends",   @"Nicole",
-//             @"friends",   @"Rebecca",
-//             @"friends",   @"Luis",
-//             @"neighbours",@"Leon",
-//             @"neighbours",@"Kaitlyn",
-//             @"other",     @"Mary",
-//             nil];
     _sections=[[NSMutableArray alloc]initWithCapacity:26];
     self.title = @"Contacts";
     for (int i=0; i<26; i++) {
@@ -110,8 +95,6 @@
     }
 }
 
-// 14. Load up our cell using the NSManagedObject retrieved using NSFRC's objectAtIndexPath:
-// (go to PhotosByPhotographerViewController.h (header file) for next step)
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -140,8 +123,6 @@
     
     return cell;
 }
-
-// 19. Support segueing from this table to any view controller that has a photographer @property.
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -287,11 +268,9 @@
 
 - (void)dealloc
 {
-//    [_people release];
     [_alphabet release];
     [_sortedKeys release];
     [_sections release];
- //   [_his release];
     [super dealloc];
 }
 
